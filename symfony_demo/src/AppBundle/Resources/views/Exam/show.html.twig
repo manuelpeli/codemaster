@@ -1,0 +1,17 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Exam:show{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Exam:show page</h1>
+
+<p>
+	Course: {{ exam.course.name }}<br />
+	Student: {{ exam.student.fullName }}<br />
+	Date: {{ exam.examDate | date('d-m-Y') }}<br />
+	Grade: {{ exam.grade }}<br />
+</p>
+
+<a href="{{ path('exam_index') }}">Back to the list</a>
+
+{% endblock %}

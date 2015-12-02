@@ -1,0 +1,18 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Teacher:show{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Teacher:show page</h1>
+
+<p>
+	First name: {{ teacher.firstName }}<br />
+	Last name: {{ teacher.lastName }}<br />
+	Serial number: {{ teacher.serialNumber }}<br />
+	Birth date: {{ teacher.birthDate | date('d-m-Y') }}<br />
+	City: {{ teacher.city }}
+</p>
+
+<a href="{{ path('teacher_index') }}">Back to the list</a>
+
+{% endblock %}

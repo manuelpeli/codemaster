@@ -1,0 +1,33 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Teacher:index{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Teacher:index page</h1>
+
+<table>
+	<thead>
+		<th>First name</th>
+		<th>Last name</th>
+		<th>Serial number</th>
+		<th>Birth date</th>
+		<th>City</th>
+		<th></th>
+		<th></th>
+	</thead>
+	<tbody>
+	{% for teacher in teachers %}
+		<tr>
+			<td>{{ teacher.firstName }}</td>
+			<td>{{ teacher.lastName }}</td>
+			<td>{{ teacher.serialNumber }}</td>
+			<td>{{ teacher.birthDate | date('d-m-Y') }}</td>
+			<td>{{ teacher.city }}</td>
+			<td><a href="{{ path('teacher_show', {'id': teacher.id }) }}">Show teacher</a></td>
+			<td><a href="{{ path('teacher_edit', {'id': teacher.id }) }}">Edit teacher</a></td>
+		</tr>
+	{% endfor %}
+	</tbody>
+
+	<a href="{{ path('teacher_create') }}">Create new teacher</a>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Student:exams{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Student:exams page</h1>
+
+<table>
+	<thead>
+		<th>Exam</th>
+		<th>Date</th>
+		<th>Grade</th>
+	</thead>
+	<tbody>
+	{% for exam in exams %}
+		<tr>
+			<td>{{ exam.course.name }}</td>
+			<td>{{ exam.examDate | date('d-m-Y') }}</td>
+			<td>{{ exam.grade }}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+
+	<a href="{{ path('student_index') }}">Back to the list</a>
+{% endblock %}

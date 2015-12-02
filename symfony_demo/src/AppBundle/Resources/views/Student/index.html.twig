@@ -1,0 +1,34 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Student:index{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Student:index page</h1>
+
+<table>
+	<thead>
+		<th>First name</th>
+		<th>Last name</th>
+		<th>Serial number</th>
+		<th>Birth date</th>
+		<th>City</th>
+		<th></th>
+		<th></th>
+	</thead>
+	<tbody>
+	{% for student in students %}
+		<tr>
+			<td>{{ student.firstName }}</td>
+			<td>{{ student.lastName }}</td>
+			<td>{{ student.serialNumber }}</td>
+			<td>{{ student.birthDate | date('d-m-Y') }}</td>
+			<td>{{ student.city }}</td>
+			<td><a href="{{ path('student_show', {'id': student.id }) }}">Show student</a></td>
+			<td><a href="{{ path('student_edit', {'id': student.id }) }}">Edit student</a></td>
+			<td><a href="{{ path('student_exams', {'id': student.id }) }}">Show exams</a></td>
+		</tr>
+	{% endfor %}
+	</tbody>
+
+	<a href="{{ path('student_create') }}">Create new student</a>
+{% endblock %}

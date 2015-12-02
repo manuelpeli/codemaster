@@ -1,0 +1,14 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Teacher:create{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Teacher:create page</h1>
+
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+
+<a href="{{ path('teacher_index') }}">Back to the list</a>
+
+{% endblock %}
